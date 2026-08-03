@@ -1,4 +1,4 @@
-# Real-Time Chat Application (MERN Stack)
+# ChitChat Application (MERN Stack)
 
 ## Overview
 This real-time chat application is built using the **MERN stack** (MongoDB, Express.js, React, and Node.js). It supports real-time messaging with **Socket.io** and authentication using **JWT & Cookies**.
