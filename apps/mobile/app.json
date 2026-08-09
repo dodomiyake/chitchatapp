@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "ChitChat",
+    "slug": "chitchat",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/brand/chitchatlogo.png",
+    "userInterfaceStyle": "light",
+    "scheme": "chitchat",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.chitchat.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/brand/chitchatlogo.png",
+        "backgroundColor": "#f8f9fd"
+      },
+      "package": "com.chitchat.app"
+    },
+    "web": {
+      "favicon": "./assets/brand/chitchatlogo.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#f8f9fd",
+          "image": "./assets/brand/chitchatlogo.png",
+          "imageWidth": 200,
+          "resizeMode": "contain"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

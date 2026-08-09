@@ -1,0 +1,89 @@
+name: Quality
+
+on:
+  push:
+    branches: [main, 'm1/**']
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.13
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build shared packages
+        run: |
+          npm run build -w @chitchat/design-tokens
+          npm run build -w @chitchat/contracts
+          npm run build -w @chitchat/api-client
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm run test
+
+      - name: Build web
+        run: npm run build:web
+
+      - name: Build API
+        run: npm run build:api
+
+      - name: Validate Expo config
+        run: npm run validate:mobile
+
+  playwright:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: quality
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.13
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build shared packages
+        run: |
+          npm run build -w @chitchat/design-tokens
+          npm run build -w @chitchat/contracts
+          npm run build -w @chitchat/api-client
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+        working-directory: tests/e2e
+
+      - name: Run Playwright smoke tests
+        run: npm run test:e2e
+        env:
+          CI: true
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: tests/e2e/playwright-report/
+          retention-days: 7

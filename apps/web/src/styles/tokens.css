@@ -1,0 +1,65 @@
+:root {
+  color-scheme: light;
+  --cc-background: #f8f9fd;
+  --cc-surface: #ffffff;
+  --cc-surface-container: #edeef2;
+  --cc-surface-container-low: #f2f3f7;
+  --cc-surface-container-high: #e7e8ec;
+  --cc-on-background: #191c1f;
+  --cc-on-surface: #191c1f;
+  --cc-on-surface-variant: #444654;
+  --cc-primary: #063ac1;
+  --cc-primary-container: #3155d9;
+  --cc-on-primary: #ffffff;
+  --cc-secondary: #50606e;
+  --cc-secondary-container: #d4e5f5;
+  --cc-error: #ba1a1a;
+  --cc-error-container: #ffdad6;
+  --cc-outline: #747686;
+  --cc-outline-variant: #c4c5d7;
+  --cc-success: #10b981;
+  --cc-radius-lg: 12px;
+  --cc-radius-full: 9999px;
+  --cc-space-xs: 4px;
+  --cc-space-sm: 8px;
+  --cc-space-md: 16px;
+  --cc-space-lg: 24px;
+  --cc-space-xl: 32px;
+  --cc-touch: 44px;
+  --cc-font: Inter, system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--cc-font);
+  background: var(--cc-background);
+  color: var(--cc-on-background);
+}
+
+:focus-visible {
+  outline: 2px solid var(--cc-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
