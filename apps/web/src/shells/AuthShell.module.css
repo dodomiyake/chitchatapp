@@ -1,0 +1,105 @@
+.page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--cc-space-lg) var(--cc-space-md);
+}
+
+.card {
+  width: min(100%, 420px);
+  background: var(--cc-surface);
+  border-radius: var(--cc-radius-lg);
+  padding: var(--cc-space-xl) var(--cc-space-lg);
+  box-shadow: 0 4px 12px rgb(6 58 193 / 8%);
+}
+
+.logoRow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--cc-space-lg);
+}
+
+.logoRow img {
+  width: 64px;
+  height: 64px;
+}
+
+.title {
+  margin: 0 0 var(--cc-space-sm);
+  font-family: var(--cc-font-brand);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.subtitle {
+  margin: 0 0 var(--cc-space-lg);
+  color: var(--cc-on-surface-variant);
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cc-space-xs);
+  margin-bottom: var(--cc-space-md);
+}
+
+.field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.field input {
+  min-height: var(--cc-touch);
+  border: 1px solid var(--cc-outline-variant);
+  border-radius: var(--cc-radius-lg);
+  padding: 0 var(--cc-space-md);
+  background: var(--cc-surface-container-low);
+  font: inherit;
+  color: inherit;
+}
+
+.field input:focus-visible {
+  border-color: var(--cc-primary);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cc-space-sm);
+  margin-top: var(--cc-space-lg);
+}
+
+.primary,
+.secondary {
+  min-height: var(--cc-touch);
+  border-radius: var(--cc-radius-full);
+  border: 1px solid transparent;
+  font: inherit;
+  font-weight: 600;
+}
+
+.primary:not(:disabled) {
+  background: var(--cc-primary);
+  color: var(--cc-on-primary);
+  cursor: pointer;
+}
+
+.secondary:not(:disabled) {
+  background: transparent;
+  color: var(--cc-primary);
+  border-color: var(--cc-outline-variant);
+  cursor: pointer;
+}
+
+.note {
+  margin: var(--cc-space-md) 0 0;
+  font-size: 0.75rem;
+  color: var(--cc-on-surface-variant);
+  text-align: center;
+}

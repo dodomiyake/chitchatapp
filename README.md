@@ -1,94 +1,87 @@
-# ChitChat Application (MERN Stack)
+# ChitChat V2
 
-## Overview
-This real-time chat application is built using the **MERN stack** (MongoDB, Express.js, React, and Node.js). It supports real-time messaging with **Socket.io** and authentication using **JWT & Cookies**.
+Accessible, secure, private real-time messaging for friends and family.
 
-## Features
-✅ User authentication (Register/Login) with JWT and HTTP-only cookies  
-✅ Real-time messaging using **Socket.io**  
-✅ Responsive chat UI with modern design  
-✅ Auto-scroll for new messages  
-✅ Persistent login session  
-✅ Input validation and error handling  
-✅ Typing indicator  
-✅ Message timestamps  
-✅ Group chatrooms  
+This repository is an npm-workspaces TypeScript monorepo. Milestone 1 provides the foundation and **static application shells only** (no authentication or messaging yet).
 
-## Tech Stack
-- **Frontend:** React.js, CSS
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB (Mongoose ODM)
-- **Real-time:** Socket.io
-- **Authentication:** JWT & HTTP-only cookies
+## Design source
 
-## Installation & Setup
-### **1. Clone the Repository**
-```bash
-git clone https://github.com/your-username/repo-name.git
-cd real-time-chat-app
+Approved Stitch project only:
+
+https://stitch.withgoogle.com/projects/16264346330507370332
+
+## Workspace layout
+
+```
+apps/web          React + Vite + PWA (CSS Modules)
+apps/mobile       React Native + Expo (StyleSheet + shared tokens)
+apps/api          Express + Socket.IO + TypeScript
+packages/contracts        Zod schemas and shared types
+packages/api-client       HTTP / socket transport helpers
+packages/design-tokens    Colours, typography, spacing, breakpoints
+packages/config           Shared TypeScript and ESLint config
+tests/e2e                 Playwright scaffold
 ```
 
-### **2. Install Dependencies**
-#### Backend
+## Prerequisites
+
+- Node.js 22.13+
+- npm 10+ (repository pins `packageManager`: npm@11.3.0)
+
+## Setup
+
 ```bash
-cd server
 npm install
-```
-#### Frontend
-```bash
-cd client
-npm install
+cp .env.example apps/api/.env
+cp .env.example apps/web/.env
 ```
 
-### **3. Set Up Environment Variables**
-Create a `.env` file inside the **server** folder and add:
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-CLIENT_URL=http://localhost:3000
-```
+`.env.example` contains placeholders only. Never commit real secrets.
 
-### **4. Start the Application**
-#### Start Backend Server
-```bash
-cd server
-npm start
-```
-#### Start Frontend React App
-```bash
-cd client
-npm start
-```
+## Scripts
 
-### **5. Open the App**
-Go to `http://localhost:3000` in your browser.
+| Command | Description |
+|---------|-------------|
+| `npm run build:packages` | Build shared packages |
+| `npm run dev:web` | Start Vite web app |
+| `npm run dev:api` | Start API (tsx watch) |
+| `npm run dev:mobile` | Start Expo |
+| `npm run lint` | Lint all workspaces |
+| `npm run typecheck` | Type-check all workspaces |
+| `npm run test` | Run unit tests |
+| `npm run test:e2e` | Run Playwright web smoke tests |
+| `npm run build` | Build packages, web, API; validate mobile |
+| `npm run build:web` | Production web build |
+| `npm run build:api` | Compile API |
+| `npm run validate:mobile` | Validate Expo config |
 
-## API Endpoints (Backend)
-### **Authentication Routes**
-| Route | Method | Description |
-|--------|--------|------------------|
-| `/api/auth/register` | POST | Register a new user |
-| `/api/auth/login` | POST | Log in an existing user |
-| `/api/auth/logout` | POST | Log out the user |
-| `/api/user/profile` | GET | Get logged-in user info |
+## Milestone 1 scope
 
-### **Messaging Routes**
-| Route | Method | Description |
-|--------|--------|------------------|
-| `/api/messages` | GET | Fetch chat messages |
-| `/api/messages` | POST | Send a new message |
+Included:
 
-## WebSocket Events (Real-Time Messaging)
-| Event | Description |
-|--------|------------------|
-| `joinRoom` | User joins a chat room |
-| `sendMessage` | Send a message to a room |
-| `receiveMessage` | Receive messages in real time |
+- Monorepo scaffolding
+- Shared tokens, contracts, config
+- API health endpoint and Socket.IO boot (no messaging)
+- Static auth / mobile / tablet / desktop shells
+- Loading, empty, offline, and error states
+- Quality GitHub Actions workflow
 
+Not included:
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+- Authentication
+- Contacts / friend requests
+- Direct or group messaging
+- Public rooms
+- Dark theme
+- Production database / storage / deployment
 
+## Legacy prototype
 
+The V1 MERN prototype is preserved via Git tag `legacy-v1-prototype`. It is not kept in the active V2 tree.
 
+## Brand assets
+
+ChitChat logos live under:
+
+- `apps/web/public/brand/`
+- `apps/mobile/assets/brand/`
