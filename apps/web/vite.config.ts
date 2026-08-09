@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['brand/chitchat-icon.svg'],
+      includeAssets: ['brand/chitchat-icon.svg', 'fonts/Nunito-ExtraBold.woff2'],
       manifest: {
         name: 'ChitChat',
         short_name: 'ChitChat',

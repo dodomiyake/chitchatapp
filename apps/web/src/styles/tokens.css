@@ -27,13 +27,13 @@
   --cc-space-xl: 32px;
   --cc-touch: 44px;
   --cc-font: Inter, system-ui, sans-serif;
-  --cc-font-brand: 'DejaVu Sans', sans-serif;
+  --cc-font-brand: Nunito, "Segoe UI", system-ui, sans-serif;
 }
 
 @font-face {
-  font-family: 'DejaVu Sans';
-  src: url('/fonts/DejaVuSans-Bold.ttf') format('truetype');
-  font-weight: 700;
+  font-family: Nunito;
+  src: url('/fonts/Nunito-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }

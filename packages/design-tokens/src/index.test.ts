@@ -17,9 +17,18 @@ describe('design tokens', () => {
     expect(breakpoints.desktop).toBe(1024);
   });
 
-  it('exposes DejaVu Sans Bold for brand wordmark text', async () => {
+  it('exposes Nunito ExtraBold for brand wordmark text', async () => {
     const { typography } = await import('./index.js');
-    expect(typography.fontFamilyBrand).toContain('DejaVu Sans');
-    expect(typography.fontFamilyBrandNative).toBe('DejaVuSans-Bold');
+    expect(typography.fontFamilyBrand).toContain('Nunito');
+    expect(typography.fontFamilyBrand).toContain('Segoe UI');
+    expect(typography.fontFamilyBrandNative).toBe('Nunito_800ExtraBold');
+    expect(typography.fontWeightBrand).toBe('800');
+  });
+
+  it('keeps Inter as the body font token', async () => {
+    const { typography } = await import('./index.js');
+    expect(typography.fontFamily).toMatch(/^Inter/);
+    expect(typography.fontFamily).not.toContain('Nunito');
+    expect(typography.fontFamily).not.toContain('DejaVu');
   });
 });
