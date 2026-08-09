@@ -5,7 +5,7 @@ export function TabletShell() {
   return (
     <div className={styles.layout}>
       <aside className={styles.sidebar} aria-label="Conversation list">
-        <h2 className={styles.title}>Chats</h2>
+        <h1 className={styles.title}>Chats</h1>
         {['Alex', 'Jordan', 'Sam'].map((name) => (
           <div key={name} className={styles.row}>
             <span className={styles.avatar} aria-hidden="true" />

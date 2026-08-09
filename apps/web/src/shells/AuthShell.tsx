@@ -6,7 +6,7 @@ export function AuthShell() {
     <section className={styles.page} aria-labelledby="auth-title">
       <div className={styles.card}>
         <div className={styles.logoRow}>
-          <img src="/brand/chitchatlogo.svg" alt="" width={64} height={64} />
+          <img src="/brand/chitchat-icon.svg" alt="" width={64} height={64} />
         </div>
         <h1 id="auth-title" className={styles.title}>
           ChitChat
@@ -38,7 +38,7 @@ export function AuthShell() {
               name="password"
               type="password"
               autoComplete="current-password"
-              placeholder="••••••••"
+              placeholder="Enter your password"
               disabled
             />
           </div>

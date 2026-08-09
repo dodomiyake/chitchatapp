@@ -76,6 +76,8 @@
   grid-template-columns: repeat(4, 1fr);
   background: var(--cc-surface);
   border-top: 1px solid var(--cc-outline-variant);
+  padding-top: var(--cc-space-xs);
+  padding-bottom: calc(var(--cc-space-xs) + env(safe-area-inset-bottom, 0px));
 }
 
 .bottomNav button {
@@ -91,7 +93,16 @@
   align-items: center;
   justify-content: center;
   gap: 2px;
-  cursor: default;
+}
+
+.bottomNav button:not(:disabled) {
+  cursor: pointer;
+}
+
+.bottomNav button:disabled {
+  /* Keep icon-tab chrome readable; mute via shared tokens without flattening icons. */
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .bottomNav button[aria-current='page'] {

@@ -1,5 +1,8 @@
 export const typography = {
   fontFamily: 'Inter, system-ui, sans-serif',
+  /** Wordmark / logo text — DejaVu Sans Bold */
+  fontFamilyBrand: "'DejaVu Sans', sans-serif",
+  fontFamilyBrandNative: 'DejaVuSans-Bold',
   headlineLg: {
     fontSize: 28,
     fontWeight: '700' as const,

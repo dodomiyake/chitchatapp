@@ -1,4 +1,4 @@
-import { colors, radii, spacing } from '@chitchat/design-tokens';
+import { colors, radii, spacing, typography } from '@chitchat/design-tokens';
 import { StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import { sharedStyles } from '../theme';
 
@@ -8,7 +8,7 @@ export function AuthShell() {
     <View style={styles.page} accessibilityLabel="Authentication shell">
       <View style={styles.card}>
         <Image
-          source={require('../../assets/brand/chitchatlogo.png')}
+          source={require('../../assets/brand/chitchat-icon-light-192.png')}
           style={styles.logo}
           accessibilityIgnoresInvertColors
           accessible={false}
@@ -30,7 +30,7 @@ export function AuthShell() {
           style={styles.input}
           editable={false}
           secureTextEntry
-          placeholder="••••••••"
+          placeholder="Enter your password"
           placeholderTextColor={colors.onSurfaceVariant}
           accessibilityLabel="Password"
         />
@@ -65,6 +65,8 @@ const styles = StyleSheet.create({
   brand: {
     textAlign: 'center',
     marginBottom: spacing.sm,
+    fontFamily: typography.fontFamilyBrandNative,
+    fontWeight: '700',
   },
   label: {
     marginTop: spacing.md,

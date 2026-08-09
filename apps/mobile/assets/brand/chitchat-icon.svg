@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">ChitChat app icon</title>
+  <desc id="desc">Two connected speech bubbles forming a conversation symbol.</desc>
+  <defs>
+    <linearGradient id="left" x1="110" y1="110" x2="450" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08D4D8"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="right" x1="914" y1="120" x2="560" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </linearGradient>
+    <clipPath id="half-left"><rect width="512" height="1024"/></clipPath>
+    <clipPath id="half-right"><rect x="512" width="512" height="1024"/></clipPath>
+  </defs>
+  <path clip-path="url(#half-left)" fill="url(#left)" fill-rule="evenodd" d="M300 154h424c132 0 220 104 220 260v102c0 130-61 226-161 253l35 137c7 28-25 48-48 30L645 782H379L254 936c-23 18-55-2-48-30l35-137C141 742 80 646 80 516V414c0-156 88-260 220-260Zm24 148c-61 0-96 48-96 124v78c0 84 40 130 110 130h348c70 0 110-46 110-130v-78c0-76-35-124-96-124H324Z"/>
+  <path clip-path="url(#half-right)" fill="url(#right)" fill-rule="evenodd" d="M300 154h424c132 0 220 104 220 260v102c0 130-61 226-161 253l35 137c7 28-25 48-48 30L645 782H379L254 936c-23 18-55-2-48-30l35-137C141 742 80 646 80 516V414c0-156 88-260 220-260Zm24 148c-61 0-96 48-96 124v78c0 84 40 130 110 130h348c70 0 110-46 110-130v-78c0-76-35-124-96-124H324Z"/>
+  <circle cx="440" cy="438" r="43" fill="#179EE8"/>
+  <circle cx="584" cy="438" r="43" fill="#6544E8"/>
+</svg>

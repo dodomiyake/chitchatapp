@@ -16,4 +16,10 @@ describe('design tokens', () => {
     expect(breakpoints.tablet).toBe(768);
     expect(breakpoints.desktop).toBe(1024);
   });
+
+  it('exposes DejaVu Sans Bold for brand wordmark text', async () => {
+    const { typography } = await import('./index.js');
+    expect(typography.fontFamilyBrand).toContain('DejaVu Sans');
+    expect(typography.fontFamilyBrandNative).toBe('DejaVuSans-Bold');
+  });
 });

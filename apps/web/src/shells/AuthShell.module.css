@@ -27,7 +27,9 @@
 
 .title {
   margin: 0 0 var(--cc-space-sm);
+  font-family: var(--cc-font-brand);
   font-size: 1.5rem;
+  font-weight: 700;
   line-height: 1.25;
   text-align: center;
 }
@@ -77,21 +79,22 @@
 .secondary {
   min-height: var(--cc-touch);
   border-radius: var(--cc-radius-full);
-  border: none;
+  border: 1px solid transparent;
   font: inherit;
   font-weight: 600;
-  cursor: not-allowed;
 }
 
-.primary {
+.primary:not(:disabled) {
   background: var(--cc-primary);
   color: var(--cc-on-primary);
+  cursor: pointer;
 }
 
-.secondary {
+.secondary:not(:disabled) {
   background: transparent;
   color: var(--cc-primary);
-  border: 1px solid var(--cc-outline-variant);
+  border-color: var(--cc-outline-variant);
+  cursor: pointer;
 }
 
 .note {

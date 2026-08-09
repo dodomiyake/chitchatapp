@@ -47,13 +47,16 @@
   min-height: var(--cc-touch);
   min-width: var(--cc-touch);
   padding: 0 var(--cc-space-lg);
-  border: none;
+  border: 1px solid transparent;
   border-radius: var(--cc-radius-full);
-  background: var(--cc-primary);
-  color: var(--cc-on-primary);
   font: inherit;
   font-weight: 600;
-  cursor: not-allowed;
+}
+
+.action:not(:disabled) {
+  background: var(--cc-primary);
+  color: var(--cc-on-primary);
+  cursor: pointer;
 }
 
 .spinner {

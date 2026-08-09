@@ -74,10 +74,11 @@
   border-bottom: 1px solid var(--cc-outline-variant);
 }
 
-.listHeader h2,
+.listHeader h1,
 .conversationHeader h2 {
   margin: 0;
   font-size: 1.125rem;
+  font-weight: 700;
 }
 
 .listBody {
@@ -159,13 +160,16 @@
 .composer button {
   min-width: var(--cc-touch);
   min-height: var(--cc-touch);
-  border: none;
+  border: 1px solid transparent;
   border-radius: var(--cc-radius-full);
-  background: var(--cc-primary);
-  color: var(--cc-on-primary);
   font: inherit;
   font-weight: 600;
-  cursor: not-allowed;
+}
+
+.composer button:not(:disabled) {
+  background: var(--cc-primary);
+  color: var(--cc-on-primary);
+  cursor: pointer;
 }
 
 @media (max-width: 1023px) {

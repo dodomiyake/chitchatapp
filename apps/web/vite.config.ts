@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['brand/chitchatlogo.svg'],
+      includeAssets: ['brand/chitchat-icon.svg'],
       manifest: {
         name: 'ChitChat',
         short_name: 'ChitChat',
@@ -18,9 +18,21 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: '/brand/chitchatlogo.svg',
+            src: '/brand/chitchat-icon.svg',
             sizes: 'any',
             type: 'image/svg+xml',
+            purpose: 'any',
+          },
+          {
+            src: '/brand/chitchat-icon-light-192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: '/brand/chitchat-icon-light-512.png',
+            sizes: '512x512',
+            type: 'image/png',
             purpose: 'any',
           },
         ],

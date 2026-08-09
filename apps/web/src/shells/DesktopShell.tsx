@@ -22,7 +22,7 @@ export function DesktopShell() {
 
       <section className={styles.listPane} aria-labelledby="desktop-list-title">
         <div className={styles.listHeader}>
-          <h2 id="desktop-list-title">Chats</h2>
+          <h1 id="desktop-list-title">Chats</h1>
         </div>
         <div className={styles.listBody}>
           {['Alex', 'Jordan', 'Sam'].map((name, index) => (

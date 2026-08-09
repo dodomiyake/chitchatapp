@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="ChitChat app icon on light background">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1024" y2="1024"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#F4F7FF"/></linearGradient>
+    <linearGradient id="left" x1="110" y1="110" x2="450" y2="880" gradientUnits="userSpaceOnUse"><stop stop-color="#08D4D8"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
+    <linearGradient id="right" x1="914" y1="120" x2="560" y2="900" gradientUnits="userSpaceOnUse"><stop stop-color="#7C3AED"/><stop offset="1" stop-color="#4F46E5"/></linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="224" fill="url(#bg)"/>
+  <g transform="translate(102 102) scale(.8)">
+    <clipPath id="half-left"><rect width="512" height="1024"/></clipPath><clipPath id="half-right"><rect x="512" width="512" height="1024"/></clipPath>
+    <path clip-path="url(#half-left)" fill="url(#left)" fill-rule="evenodd" d="M300 154h424c132 0 220 104 220 260v102c0 130-61 226-161 253l35 137c7 28-25 48-48 30L645 782H379L254 936c-23 18-55-2-48-30l35-137C141 742 80 646 80 516V414c0-156 88-260 220-260Zm24 148c-61 0-96 48-96 124v78c0 84 40 130 110 130h348c70 0 110-46 110-130v-78c0-76-35-124-96-124H324Z"/>
+    <path clip-path="url(#half-right)" fill="url(#right)" fill-rule="evenodd" d="M300 154h424c132 0 220 104 220 260v102c0 130-61 226-161 253l35 137c7 28-25 48-48 30L645 782H379L254 936c-23 18-55-2-48-30l35-137C141 742 80 646 80 516V414c0-156 88-260 220-260Zm24 148c-61 0-96 48-96 124v78c0 84 40 130 110 130h348c70 0 110-46 110-130v-78c0-76-35-124-96-124H324Z"/>
+  </g>
+  <circle cx="454" cy="452" r="34" fill="#179EE8"/><circle cx="569" cy="452" r="34" fill="#6544E8"/>
+</svg>

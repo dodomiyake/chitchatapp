@@ -18,23 +18,25 @@ export function AppShell() {
       <a className={styles.skipLink} href="#main">
         Skip to content
       </a>
-      <header className={styles.topBar}>
-        <a className={styles.brand} href="/">
-          <img src="/brand/chitchatlogo.svg" alt="" width={36} height={36} />
-          <span>ChitChat</span>
-        </a>
-        <nav className={styles.nav} aria-label="Shell previews">
-          {LINKS.map((link) => (
-            <NavLink key={link.to} to={link.to}>
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
+      <header className={styles.chrome}>
+        <div className={styles.topBar}>
+          <a className={styles.brand} href="/">
+            <img src="/brand/chitchat-icon.svg" alt="" width={36} height={36} />
+            <span>ChitChat</span>
+          </a>
+          <nav className={styles.nav} aria-label="Shell previews">
+            {LINKS.map((link) => (
+              <NavLink key={link.to} to={link.to}>
+                {link.label}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
+        <p className={styles.banner}>
+          Milestone 1 static shells — authentication and messaging are not connected.
+        </p>
       </header>
-      <p className={styles.banner}>
-        Milestone 1 static shells — authentication and messaging are not connected.
-      </p>
-      <main id="main" className={styles.main}>
+      <main id="main" className={styles.main} tabIndex={-1}>
         <Outlet />
       </main>
     </div>
