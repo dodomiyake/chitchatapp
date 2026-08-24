@@ -78,6 +78,72 @@ test.describe('ChitChat V2 M1 web shells', () => {
     expect(consoleErrors).toEqual([]);
   });
 
+  test('auth shell has no horizontal overflow at 320px or 390px', async ({ page }) => {
+    for (const width of [320, 390] as const) {
+      await page.setViewportSize({ width, height: 844 });
+      await page.goto('/auth');
+      const overflow = await page.evaluate(() => {
+        const doc = document.documentElement;
+        return doc.scrollWidth > doc.clientWidth + 1;
+      });
+      expect(overflow, `overflow at ${width}px`).toBe(false);
+    }
+  });
+
+  test('brand heading uses Nunito ExtraBold and body keeps Inter', async ({ page }) => {
+    await page.goto('/auth');
+    await page.waitForFunction(() => document.fonts.check('800 24px Nunito'));
+
+    const info = await page.evaluate(() => {
+      const heading = document.querySelector('h1');
+      const subtitle = Array.from(document.querySelectorAll('p')).find((p) =>
+        /Sign in to continue/i.test(p.textContent ?? ''),
+      );
+      const face = [...document.fonts].find(
+        (f) => /nunito/i.test(f.family) && String(f.weight) === '800',
+      );
+      return {
+        headingFamily: heading ? getComputedStyle(heading).fontFamily : null,
+        headingWeight: heading ? getComputedStyle(heading).fontWeight : null,
+        subtitleFamily: subtitle ? getComputedStyle(subtitle).fontFamily : null,
+        nunitoLoaded: face?.status ?? 'missing',
+        googleNunitoRequests: performance
+          .getEntriesByType('resource')
+          .map((e) => e.name)
+          .filter((n) => /fonts\.googleapis|fonts\.gstatic/i.test(n) && /nunito/i.test(n)),
+        dejaVuRequests: performance
+          .getEntriesByType('resource')
+          .map((e) => e.name)
+          .filter((n) => /dejavu/i.test(n)),
+      };
+    });
+
+    expect(info.nunitoLoaded).toBe('loaded');
+    expect(info.headingFamily).toMatch(/Nunito/i);
+    expect(info.headingWeight).toBe('800');
+    expect(info.subtitleFamily).toMatch(/Inter/i);
+    expect(info.googleNunitoRequests).toEqual([]);
+    expect(info.dejaVuRequests).toEqual([]);
+  });
+
+  test('captures visual comparisons for brand font review', async ({ page }) => {
+    const shots: Array<{ path: string; size: { width: number; height: number }; route: string }> = [
+      { path: 'auth-390x844.png', size: { width: 390, height: 844 }, route: '/auth' },
+      { path: 'mobile-390x844.png', size: { width: 390, height: 844 }, route: '/mobile' },
+      { path: 'tablet-768x1024.png', size: { width: 768, height: 1024 }, route: '/tablet' },
+      { path: 'desktop-1440x900.png', size: { width: 1440, height: 900 }, route: '/desktop' },
+    ];
+
+    for (const shot of shots) {
+      await page.setViewportSize(shot.size);
+      await page.goto(shot.route);
+      await page.screenshot({
+        path: `visual-snapshots/${shot.path}`,
+        fullPage: true,
+      });
+    }
+  });
+
   test('tablet route exposes a single Chats h1 and conversation h2', async ({ page }) => {
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto('/tablet');

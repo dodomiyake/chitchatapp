@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
+import './styles/tokens.css';
+import authStyles from './shells/AuthShell.module.css';
 
 function renderRoute(path: string) {
   return render(
@@ -81,5 +83,22 @@ describe('web shells', () => {
     expect(screen.queryByText(/Select a Room/i)).not.toBeInTheDocument();
     expect(screen.queryByRole('combobox')).not.toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /dark mode|toggle dark/i })).not.toBeInTheDocument();
+  });
+
+  it('applies the Nunito brand token to the ChitChat heading', () => {
+    renderRoute('/auth');
+
+    const heading = screen.getByRole('heading', { level: 1, name: 'ChitChat' });
+    expect(heading.className).toContain(authStyles.title);
+    // CSS Modules + tokens: brand face is Nunito ExtraBold (800).
+    expect(authStyles.title).toBeTruthy();
+  });
+
+  it('keeps body copy off the brand font class', () => {
+    renderRoute('/auth');
+
+    const subtitle = screen.getByText(/Sign in to continue private conversations/i);
+    expect(subtitle.className).toContain(authStyles.subtitle);
+    expect(subtitle.className).not.toContain(authStyles.title);
   });
 });

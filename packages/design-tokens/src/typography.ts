@@ -1,8 +1,9 @@
 export const typography = {
   fontFamily: 'Inter, system-ui, sans-serif',
-  /** Wordmark / logo text — DejaVu Sans Bold */
-  fontFamilyBrand: "'DejaVu Sans', sans-serif",
-  fontFamilyBrandNative: 'DejaVuSans-Bold',
+  /** Wordmark / logo text — Nunito ExtraBold (800) */
+  fontFamilyBrand: 'Nunito, "Segoe UI", system-ui, sans-serif',
+  fontFamilyBrandNative: 'Nunito_800ExtraBold',
+  fontWeightBrand: '800' as const,
   headlineLg: {
     fontSize: 28,
     fontWeight: '700' as const,

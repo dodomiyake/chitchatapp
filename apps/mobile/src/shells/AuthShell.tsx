@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
   brand: {
     textAlign: 'center',
     marginBottom: spacing.sm,
+    // Weight is baked into Nunito_800ExtraBold; do not set fontWeight on native.
     fontFamily: typography.fontFamilyBrandNative,
-    fontWeight: '700',
   },
   label: {
     marginTop: spacing.md,

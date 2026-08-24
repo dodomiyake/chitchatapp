@@ -1,9 +1,8 @@
-# Fonts
+# Fonts (web)
 
-## DejaVu Sans Bold
+Self-hosted **Nunito ExtraBold** (weight 800) for ChitChat brand wordmarks only.
 
-- File: `DejaVuSans-Bold.ttf` (DejaVu fonts 2.37)
-- Use: ChitChat logo / wordmark text only
-- Source: https://github.com/dejavu-fonts/dejavu-fonts/releases/tag/version_2_37
-- License: Bitstream Vera Fonts Copyright / Arev Fonts Copyright / Public Domain
-  (see https://dejavu-fonts.github.io/License.html)
+- File: `Nunito-ExtraBold.woff2`
+- Source: Nunito Project / Google Fonts static ExtraBold, converted to WOFF2
+- Licence: SIL OFL 1.1 — see `docs/licenses/Nunito-OFL.txt` and `docs/design/brand-fonts.md`
+- Body UI text continues to use Inter (not this file)
